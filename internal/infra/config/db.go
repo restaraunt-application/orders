@@ -13,8 +13,7 @@ type PostgreSQLConfig struct {
 	MaxOpenConnections int    `env:"POSTGRES_MAX_OPEN_CONNECTIONS" envDefault:"10"`
 }
 
-func (config *PostgreSQLConfig) ConnectionString() string {
-
+func (c *PostgreSQLConfig) ConnectionString() string {
 	return fmt.Sprintf("postgresql://%s:%s@%s:%d/%s?sslmode=disable",
-		config.User, config.Password, config.Host, config.Port, config.DBName)
+		c.User, c.Password, c.Host, c.Port, c.DBName)
 }
