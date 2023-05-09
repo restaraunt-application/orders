@@ -1,7 +1,6 @@
 package db
 
 import (
-	"context"
 	"orders/internal/infra/config"
 
 	"github.com/uptrace/opentelemetry-go-extra/otelsql"
@@ -12,8 +11,8 @@ import (
 	"github.com/uptrace/opentelemetry-go-extra/otelsqlx"
 )
 
-func NewDB(ctx context.Context, dbConfig *config.PostgreSQLConfig) (*sqlx.DB, error) {
-	db, err := otelsqlx.ConnectContext(ctx, "pgx", dbConfig.ConnectionString(),
+func NewDB(dbConfig *config.PostgreSQLConfig) (*sqlx.DB, error) {
+	db, err := otelsqlx.Connect("pgx", dbConfig.ConnectionString(),
 		otelsql.WithAttributes(semconv.DBSystemPostgreSQL), otelsql.WithDBName(dbConfig.DBName))
 	if err != nil {
 		return nil, err

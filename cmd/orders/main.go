@@ -45,14 +45,13 @@ func main() {
 		log.Fatalf("tracing.Init: %s", err)
 	}
 
-	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
-	defer cancel()
-
-	db, err := database.NewDB(ctx, appConfig.DBConfig)
+	db, err := database.NewDB(appConfig.DBConfig)
 	if err != nil {
-		cancel()
 		log.Fatalf("database.Init: %s", err)
 	}
+
+	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt, syscall.SIGTERM)
+	defer cancel()
 
 	otel.SetTracerProvider(tp)
 
