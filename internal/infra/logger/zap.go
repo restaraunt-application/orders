@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"orders/internal/infrastructure/config"
+	"orders/internal/infra/config"
 
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"

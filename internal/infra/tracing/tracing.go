@@ -1,7 +1,7 @@
 package tracing
 
 import (
-	"orders/internal/infrastructure/config"
+	"orders/internal/infra/config"
 
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/exporters/jaeger"

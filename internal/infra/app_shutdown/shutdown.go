@@ -2,7 +2,7 @@ package appshutdown
 
 import (
 	"context"
-	"orders/internal/infrastructure/logger"
+	"orders/internal/infra/logger"
 	"os"
 	"sync"
 	"time"

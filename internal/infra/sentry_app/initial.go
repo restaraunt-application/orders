@@ -1,7 +1,7 @@
 package sentryapp
 
 import (
-	"orders/internal/infrastructure/config"
+	"orders/internal/infra/config"
 
 	"github.com/getsentry/sentry-go"
 )
