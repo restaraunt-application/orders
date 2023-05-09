@@ -4,6 +4,7 @@ import "github.com/caarlos0/env/v8"
 
 type AppConfig struct {
 	LogConfig                  *LogConfig
+	DBConfig                   *PostgreSQLConfig
 	SentryConfig               *SentryConfig
 	TracingConfig              *TracingConfig
 	ShutDownApplicationTimeout uint8 `env:"SHUTDOWN_APPLICATION_TIMEOUT" envDefault:"5"`
